@@ -1,0 +1,111 @@
+.jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.jump a {
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--color-night-hairline);
+  border-radius: var(--radius-full);
+  font-size: var(--text-small);
+  color: var(--color-on-night);
+  transition:
+    background-color var(--duration-fast),
+    color var(--duration-fast);
+}
+
+.jump a:hover {
+  background: var(--color-on-night);
+  color: var(--color-night);
+}
+
+.anchor {
+  scroll-margin-top: var(--header-h);
+}
+
+.services {
+  background: var(--color-surface);
+}
+
+.services ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-5);
+  list-style: none;
+  margin-block: 0;
+  padding-block: var(--space-6);
+}
+
+.services li {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+
+.services svg {
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.serviceTitle {
+  font-weight: 600;
+  font-size: var(--text-small);
+}
+
+.serviceText {
+  font-size: var(--text-xs);
+  color: var(--color-mute);
+}
+
+.card {
+  background: var(--color-canvas-raised);
+  border-block: 1px solid var(--color-hairline-soft);
+}
+
+.cardGrid {
+  display: grid;
+  gap: var(--space-7);
+}
+
+@media (min-width: 900px) {
+  .cardGrid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    align-items: center;
+    gap: var(--space-9);
+  }
+}
+
+.cardMedia {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  max-height: 560px;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.cardMedia img {
+  object-fit: cover;
+}
+
+.cardCopy {
+  display: grid;
+  gap: var(--space-4);
+  justify-items: start;
+}
+
+.cardCopy h2 {
+  font-size: var(--text-h2);
+}
+
+.cardActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-5);
+  margin-top: var(--space-2);
+}

@@ -1,0 +1,13 @@
+.active {
+  color: var(--color-sale);
+}
+
+.active svg {
+  animation: pop var(--duration-base) var(--ease-out);
+}
+
+@keyframes pop {
+  50% {
+    transform: scale(1.25);
+  }
+}

@@ -1,0 +1,118 @@
+.header {
+  background: var(--color-night);
+  color: var(--color-on-night);
+}
+
+.light {
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-6);
+  padding-top: var(--space-5);
+  padding-bottom: var(--space-6);
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: stretch;
+    gap: var(--space-8);
+    padding-block: 0;
+  }
+}
+
+.copy {
+  display: grid;
+  align-content: center;
+  gap: var(--space-4);
+  max-width: 34rem;
+}
+
+@media (min-width: 900px) {
+  .copy {
+    padding-block: var(--space-8);
+  }
+}
+
+.crumbs {
+  margin-bottom: var(--space-4);
+}
+
+.header:not(.light) .crumbs :global(nav) ol {
+  color: var(--color-on-night-mute);
+}
+
+.header:not(.light) .crumbs [aria-current="page"] {
+  color: var(--color-on-night);
+}
+
+.eyebrow {
+  font-size: var(--text-eyebrow);
+  font-weight: 600;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--color-glow);
+}
+
+.light .eyebrow {
+  color: var(--color-accent);
+}
+
+.copy h1 {
+  font-size: var(--text-h1);
+  line-height: 1.04;
+}
+
+.intro {
+  font-size: var(--text-lead);
+  line-height: 1.55;
+  color: var(--color-on-night-mute);
+}
+
+.light .intro {
+  color: var(--color-ink-soft);
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--color-night-raised);
+}
+
+@media (min-width: 900px) {
+  .media {
+    aspect-ratio: auto;
+    min-height: 480px;
+    margin-right: calc(-1 * var(--gutter));
+  }
+}
+
+.media img {
+  object-fit: cover;
+}
+
+.media {
+  border-radius: var(--radius-card);
+  margin-block: var(--space-5);
+  box-shadow: 0 40px 70px -35px rgba(0, 0, 0, 0.7);
+}
+@media (min-width: 900px) {
+  .media {
+    margin-right: 0;
+  }
+}
+.copy h1 {
+  font-weight: 800;
+}
+.header {
+  background:
+    radial-gradient(70% 90% at 20% 0%, rgba(193, 18, 31, 0.55), transparent 70%),
+    var(--color-night);
+}
+.light {
+  background: var(--color-surface);
+}

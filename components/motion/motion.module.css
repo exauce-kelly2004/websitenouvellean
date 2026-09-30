@@ -1,0 +1,44 @@
+/* ---------------- Inclinaison 3D ---------------- */
+.tiltScene {
+  perspective: 1000px;
+  height: 100%;
+}
+
+.tilt {
+  --rx: 0deg;
+  --ry: 0deg;
+  --gx: 50%;
+  --gy: 50%;
+  position: relative;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform 600ms var(--ease-out);
+  will-change: transform;
+}
+
+.tilt[data-active="true"] {
+  transition: transform 80ms linear;
+}
+
+.glare {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-card);
+  pointer-events: none;
+  background: radial-gradient(circle at var(--gx) var(--gy), rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0) 45%);
+  opacity: 0;
+  mix-blend-mode: soft-light;
+  transition: opacity var(--duration-base);
+  z-index: 3;
+}
+
+.tilt[data-active="true"] .glare {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tilt {
+    transform: none !important;
+  }
+}

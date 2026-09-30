@@ -1,0 +1,128 @@
+.gallery {
+  display: grid;
+  gap: var(--space-3);
+  margin-inline: calc(-1 * var(--gutter));
+}
+
+@media (min-width: 900px) {
+  .gallery {
+    margin-inline: 0;
+    grid-template-columns: 80px minmax(0, 1fr);
+    align-items: start;
+    position: sticky;
+    top: calc(var(--header-h) + var(--space-4));
+  }
+}
+
+.single {
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+
+.thumbs {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .thumbs {
+    display: grid;
+    gap: var(--space-2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.thumb {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--color-surface);
+  opacity: 0.6;
+  outline-offset: 2px;
+  transition: opacity var(--duration-fast);
+}
+
+.thumb img {
+  object-fit: cover;
+}
+
+.thumb:hover,
+.thumb[aria-current="true"] {
+  opacity: 1;
+}
+
+.thumb[aria-current="true"] {
+  box-shadow: 0 0 0 1px var(--color-ink);
+}
+
+.stage {
+  position: relative;
+  grid-column: -2 / -1;
+}
+
+.track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  position: relative;
+  flex: 0 0 100%;
+  aspect-ratio: 4 / 5;
+  scroll-snap-align: start;
+  background: var(--color-surface);
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: var(--space-4);
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.dots span {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: rgba(252, 250, 247, 0.6);
+  box-shadow: 0 0 0 1px rgba(23, 20, 15, 0.12);
+  transition:
+    width var(--duration-base),
+    background-color var(--duration-base);
+}
+
+.dots span[data-active="true"] {
+  width: 18px;
+  background: var(--color-canvas-raised);
+}
+
+@media (min-width: 900px) {
+  .dots {
+    display: none;
+  }
+}
+
+.slide,
+.thumb {
+  border-radius: var(--radius-media);
+}
+.track {
+  border-radius: var(--radius-card);
+}

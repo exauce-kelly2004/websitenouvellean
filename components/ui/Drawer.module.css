@@ -1,0 +1,123 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-drawer);
+  visibility: hidden;
+  pointer-events: none;
+  transition: visibility 0s linear var(--duration-slow);
+}
+
+.root[data-open="true"] {
+  visibility: visible;
+  pointer-events: auto;
+  transition: visibility 0s;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--color-overlay);
+  opacity: 0;
+  transition: opacity var(--duration-slow) var(--ease-out);
+  backdrop-filter: blur(2px);
+}
+
+.root[data-open="true"] .backdrop {
+  opacity: 1;
+}
+
+.panel {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-canvas);
+  box-shadow: var(--shadow-layer);
+  transition: transform var(--duration-slow) var(--ease-out);
+  outline: none;
+}
+
+.right {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(440px, 100vw);
+  transform: translateX(100%);
+}
+
+.left {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: min(400px, 92vw);
+  transform: translateX(-100%);
+}
+
+.bottom {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 88vh;
+  transform: translateY(100%);
+}
+
+.top {
+  top: 0;
+  left: 0;
+  right: 0;
+  max-height: 92vh;
+  transform: translateY(-100%);
+}
+
+.center {
+  top: 50%;
+  left: 50%;
+  width: min(640px, calc(100vw - 2rem));
+  max-height: calc(100vh - 4rem);
+  transform: translate(-50%, calc(-50% + 16px));
+  opacity: 0;
+  transition:
+    transform var(--duration-slow) var(--ease-out),
+    opacity var(--duration-base) var(--ease-out);
+}
+
+.root[data-open="true"] .right,
+.root[data-open="true"] .left,
+.root[data-open="true"] .bottom,
+.root[data-open="true"] .top {
+  transform: none;
+}
+
+.root[data-open="true"] .center {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-4) var(--space-4) var(--space-5);
+  border-bottom: var(--border);
+  flex-shrink: 0;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.body {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--space-5);
+}
+
+.footer {
+  flex-shrink: 0;
+  padding: var(--space-4) var(--space-5) calc(var(--space-4) + env(safe-area-inset-bottom));
+  border-top: var(--border);
+  background: var(--color-canvas-raised);
+}

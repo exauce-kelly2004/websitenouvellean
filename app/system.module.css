@@ -1,0 +1,48 @@
+.system {
+  padding-block: var(--section-y);
+  text-align: center;
+}
+
+.system h1 {
+  font-size: var(--text-h1);
+  margin-block: var(--space-3) var(--space-4);
+}
+
+.code {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(3.5rem, 2rem + 6vw, 7rem);
+  line-height: 1;
+  color: var(--color-accent);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2) var(--space-5);
+  list-style: none;
+  margin: var(--space-7) 0 0;
+  padding: 0;
+  font-size: var(--text-small);
+}
+
+.links a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.digest {
+  margin-top: var(--space-5);
+  font-size: var(--text-xs);
+  color: var(--color-mute);
+}
+

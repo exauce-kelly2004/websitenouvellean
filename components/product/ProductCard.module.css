@@ -1,0 +1,151 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  height: 100%;
+  min-width: 0;
+  padding: 10px 10px 12px;
+  background: var(--color-canvas-raised);
+  border: 1px solid var(--color-hairline-soft);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--duration-slow) var(--ease-out);
+  transform-style: preserve-3d;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--radius-media);
+  background: var(--color-surface);
+  /* Légère profondeur : l'image « flotte » au-dessus de la carte */
+  transform: translateZ(20px);
+}
+
+.mediaLink {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.image {
+  object-fit: cover;
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    transform 900ms var(--ease-out);
+}
+
+.imageAlt {
+  opacity: 0;
+}
+
+@media (hover: hover) {
+  .card:hover .imageAlt {
+    opacity: 1;
+  }
+  .card:hover .image {
+    transform: scale(1.05);
+  }
+}
+
+.badges {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.favorite {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  z-index: 2;
+}
+
+.info {
+  display: grid;
+  gap: 2px;
+  padding: 0 4px;
+  transform: translateZ(10px);
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.3;
+}
+
+.name a:hover {
+  color: var(--color-accent);
+}
+
+.subtitle {
+  font-size: var(--text-xs);
+  color: var(--color-mute);
+  line-height: 1.4;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.meta :global(span) {
+  font-size: inherit;
+}
+
+.swatches {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--text-xs);
+  color: var(--color-mute);
+}
+
+.stockNote {
+  font-size: var(--text-xs);
+  color: var(--color-sale);
+  font-weight: 600;
+}
+
+.quick {
+  margin-top: auto;
+  padding: 0 2px;
+  transform: translateZ(16px);
+}
+
+.soldOut {
+  display: grid;
+  place-items: center;
+  height: 42px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  color: var(--color-mute);
+  font-size: var(--text-small);
+  font-weight: 600;
+}
+
+/* Variante compacte */
+.compact .name {
+  font-size: var(--text-small);
+}
+
+.compact .meta {
+  margin-top: 0;
+}

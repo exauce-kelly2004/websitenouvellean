@@ -1,0 +1,140 @@
+.look {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: var(--border);
+}
+
+.item {
+  display: grid;
+  grid-template-columns: auto 60px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  border-bottom: var(--border);
+  transition: opacity var(--duration-base);
+}
+
+.item[data-off] {
+  opacity: 0.5;
+}
+
+.check {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--color-subtle);
+  border-radius: var(--radius-sm);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  background: var(--color-canvas-raised);
+}
+
+.check::after {
+  content: "";
+  width: 10px;
+  height: 6px;
+  border-left: 2px solid var(--color-canvas);
+  border-bottom: 2px solid var(--color-canvas);
+  transform: rotate(-45deg) translate(1px, -1px);
+  opacity: 0;
+}
+
+.check:checked {
+  background: var(--color-ink);
+  border-color: var(--color-ink);
+}
+
+.check:checked::after {
+  opacity: 1;
+}
+
+.thumb {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  background: var(--color-surface);
+  overflow: hidden;
+}
+
+.thumb img {
+  object-fit: cover;
+}
+
+.info {
+  display: grid;
+  gap: 2px;
+  font-size: var(--text-small);
+  min-width: 0;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.name:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.sub {
+  color: var(--color-mute);
+  font-size: var(--text-xs);
+}
+
+.size select {
+  height: 40px;
+  padding: 0 var(--space-3);
+  border: var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--color-canvas-raised);
+  font-size: var(--text-small);
+  max-width: 7.5rem;
+}
+
+.size select[aria-invalid="true"] {
+  border-color: var(--color-error);
+}
+
+@media (max-width: 479px) {
+  .item {
+    grid-template-columns: auto 52px minmax(0, 1fr);
+  }
+  .size {
+    grid-column: 3;
+  }
+}
+
+.error {
+  font-size: var(--text-small);
+  color: var(--color-error);
+}
+
+.footer {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.footer p {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 1.125rem;
+}
+
+.totalLabel {
+  font-size: var(--text-small);
+  color: var(--color-mute);
+}
+
+.thumb {
+  border-radius: 10px;
+}
+.size select {
+  border-radius: var(--radius-full);
+}
